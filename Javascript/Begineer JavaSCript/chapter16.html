@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 16 A DEEPER LOOK AT OBJECTS</title>
+    </head>
+    <body>
+        <h3>CHAPTER 16 A DEEPER LOOK AT OBJECTS</h3>
+        <script>
+            var person = {
+                getName: function () {
+                    return "Name is " + this.firstName + " " + this.lastName;
+                }
+            };
+            var funnyGuy = Object.create(person);
+            funnyGuy.firstName = "Rahul";
+            funnyGuy.lastName = "Korima";
+            var theDude = Object.create(person);
+            theDude.firstName = "Jenny";
+            theDude.lastName = "Lebowski";
+            var detective = Object.create(person);
+            detective.firstName = "Anupam";
+            detective.lastName = "Singh";
+            alert(funnyGuy.getName());
+            alert(theDude.getName());
+            alert(detective.getName());
+        </script>
+    </body>
+</html>

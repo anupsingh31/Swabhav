@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 22 FINDING ELEMENTS IN THE DOM </title>
+    </head>
+    <body>
+        <h3>CHAPTER 22 FINDING ELEMENTS IN THE DOM </h3>
+        <div id="main">
+            <div class="pictureContainer">
+            <img class="theImage" src="house.jpg" height="300" width="500" />
+            </div>
+            <div class="pictureContainer">
+            <img class="theImage" src="cat.png" height="300" width="500" />
+            </div>
+            <div class="pictureContainer">
+            <img class="theImage" src="bike.jpg" height="300" width="500" />
+            </div>
+            <div class="pictureContainer">
+            <img class="theImage" src="dress.jpg" height="300" width="500" />
+            </div>
+            </div>
+        <script>
+            var images = document.querySelectorAll(".theImage");
+            for (var i = 0; i < images.length; i++) {
+                var image = images[i];
+                alert(image.getAttribute("src"));
+            }
+        </script>
+    </body>
+</html>

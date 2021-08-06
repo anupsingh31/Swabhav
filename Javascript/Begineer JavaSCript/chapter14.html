@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 14 ARRAYS </title>
+    </head>
+    <body>
+        <h3>CHAPTER 14 ARRAYS </h3>
+        <script>
+            var groceries = ["Milk", "Eggs", "Frosted Flakes", "Salami","Juice"];
+            for (var i = 0; i < groceries.length; i++) {
+                var item = groceries[i];
+               document.write(item+" ");
+            }
+            groceries.push("Cookies");
+            groceries.unshift("Bananas");
+           document.write(groceries+"</br>");
+            var lastItem = groceries.pop();
+            document.write(lastItem+"</br>");
+            var firstItem = groceries.shift();
+           document.write(firstItem+"</br>");
+            alert(groceries);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 24 STYLING YOUR CONTENT</title>
+        <style>
+            .batman {
+                width: 100px;
+                height: 100px;
+                background-color: #333;
+            }
+            .myDiv {
+                width: 200px;
+                height: 200px;
+                background-color: rgb(224, 24, 24);
+            }
+        </style>
+    </head>
+    <body>
+        <h3>CHAPTER 24 STYLING YOUR CONTENT</h3>
+        <div class="batman"></div>
+        <div class="myDiv"></div>
+        <script>
+           var myElement = document.querySelector("#batman");
+           myElement.style.backgroundColor = "#D93600";
+           var divElement = document.querySelector("#myDiv");
+           divElement.classList.add("baz");
+           alert(divElement.classList);
+        </script>
+    </body>
+</html>

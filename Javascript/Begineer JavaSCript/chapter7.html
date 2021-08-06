@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Chapter 7 Varible Scope</title>
+    </head>
+    <body>
+        <script>
+           var foo = "Hello!";
+            function doSomethingClever() {
+                alert(foo);
+                var foo = "Good Bye!";
+                alert(foo);
+            }
+            doSomethingClever();
+
+            var x = 100;
+            function blockScoping() {
+                if (true) {
+                    let x = 350;
+                    alert(x) // 350
+                }
+                alert(x); // 100;
+            }
+            blockScoping();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 29 EVENT BUBBLING AND CAPTURING</title>
+    </head>
+    <body id="theBody" class="item">
+        <div id="one_a" class="item">
+        <div id="two" class="item">
+        <div id="three_a" class="item">
+        <button id="buttonOne" class="item">one</button>
+        </div>
+        <div id="three_b" class="item">
+        <button id="buttonTwo" class="item">two</button>
+        <button id="buttonThree" class="item">three</button>
+        </div>
+        </div>
+        </div>
+        <div id="one_b" class="item">
+        </div>
+        <script>
+            document.addEventListener("click", changeColor, false);
+            function changeColor() {
+                document.body.style.backgroundColor = "#FFC926";
+            }
+            var items = document.querySelectorAll(".item");
+            for (var i = 0; i < items.length; i++) {
+                var el = items[i];                //capturing phase
+                el.addEventListener("click", doSomething, true);
+    
+                //bubbling phase
+               el.addEventListener("click", doSomething, false);
+               
+            }
+            function doSomething(e) {
+                alert(console.log(e.currentTarget.id));
+            }
+        </script>
+    </body>
+</html>

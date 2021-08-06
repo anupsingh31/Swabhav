@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 20 IMMEDIATELY INVOKED FUNCTION EXPRESSIONS</title>
+    </head>
+    <body>
+        <h3>CHAPTER 20 IMMEDIATELY INVOKED FUNCTION EXPRESSIONS</h3>
+        <script>
+            (function() {
+                var shout = "I AM ALIVE!!!";
+                alert(shout);
+            })();
+            (function (first, last) {
+                alert("My name is " + last + ", " + first + " " + last + ".");
+            })("Anupam", "Singh");
+            function quotatious(names) {
+                var quotes = [];
+                for (var i = 0; i < names.length; i++) {
+                    (function(index) {
+                        var theFunction = function() {
+                            return "My name is " + names[index] + "!";
+                        }
+                        quotes.push(theFunction);
+                    })(i);
+                }
+                return quotes;
+            }
+            var people = ["Tony Stark", "John Rambo", "James Bond", "Rick James"];
+            var peopleFunctions = quotatious(people);
+            var person = peopleFunctions[1];
+            alert(person());
+        </script>
+    </body>
+</html>

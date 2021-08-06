@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Chapter 12 String </title>
+    </head>
+    <body>
+        <h3>Welcome to Chapter 12 String </h3>
+        <script>
+            var foo = "I really";
+            var blah = "why anybody would";
+            var blarg = "do this";
+            var result = foo.concat(" don't know", " ", blah, " ", blarg);
+            alert(result);
+            var theBigString = "Pulp Fiction is an awesome movie!";
+            alert(theBigString.slice(5, 12));
+            alert(theBigString.slice(0, -6));
+            alert(theBigString.slice(-14, -7));
+            alert(theBigString.substr(5, 7)); // Fiction
+            var inspirationalQuote = "That which you can concatenate, you can also split apart.";
+            var splitWords = inspirationalQuote.split(" ");
+            alert(splitWords.length); // 10
+            var question = "How much wood could a woodchuck chuck if a woodchuck could chuck wood?";
+            alert(question.lastIndexOf("wood"));
+            alert(question.indexOf("wood", 30));
+        </script>
+    </body>
+</html>

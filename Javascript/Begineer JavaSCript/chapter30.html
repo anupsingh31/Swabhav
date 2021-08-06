@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 30 MOUSE EVENTS</title>
+        <link href="chapter21.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3>CHAPTER 30 MOUSE EVENTS</h3>
+        <div id="container">
+            <img src="house.jpg" />
+            <h1>What This Sea Otter Did to This Little
+            Kid Will Make You LOL!</h1>
+            <p class="bodyText">
+            Nulla tristique, justo eget semper viverra,
+            massa arcu congue tortor, ut vehicula urna mi
+            in lorem. Quisque aliquam molestie dui, at tempor
+            turpis porttitor nec. Aenean id interdum urna.
+            Curabitur mi ligula, hendrerit at semper sed,
+            feugiat a nisi.
+            <p>
+            <div class="submitButton">
+            more
+            </div>
+            </div>
+        <script>
+            var button = document.querySelector("#container");
+            button.addEventListener("mouseover", hovered, false);
+            button.addEventListener("mouseout", hoveredOut, false);
+            button.addEventListener("mousedown", mousePressed, false);
+            button.addEventListener("mouseup", mouseReleased, false);
+            button.addEventListener("click", mouseClicked, false);
+            button.addEventListener("mousemove", mouseIsMoving, false);
+            function hovered(e) {
+                console.log("Hovered!");
+            }
+            function hoveredOut(e) {
+                console.log("Hovered Away!");
+            }
+            function mousePressed(e) {
+                console.log("Mouse is down!");
+            }
+            function mouseReleased(e) {
+                console.log("Mouse is up!");
+            }
+            function mouseClicked(e) {
+                console.log("Mouse is clicked!");
+            }
+            function mouseIsMoving(e) {
+                console.log(e.screenX + " " + e.screenY);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 28 EVENTS</title>
+    </head>
+    <body>
+        <h3>Click Anywhere!</h3>
+        <script>
+            document.addEventListener("click", changeColor, false);
+            //document.removeEventListener("click", changeColor, false);
+            function changeColor() {
+                document.body.style.backgroundColor = "#FFC926";
+            }
+        </script>
+    </body>
+</html>

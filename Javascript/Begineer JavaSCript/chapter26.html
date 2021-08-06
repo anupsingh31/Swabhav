@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 26 CREATING AND REMOVING DOM ELEMENTS</title>
+    </head>
+    <body>
+        <h1 id="theTitle" class="highlight summer">What's happening? </h1>
+        <div id="outerContainer">
+            <div>
+                <h1>This one thing will change your life!!!</h1>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="share">
+                <p>Something</p>
+                <img alt="#" src="house.jpg"/>
+            </div>
+        </div>
+        <script>
+            var newElement = document.createElement("p");
+            newElement.textContent = "I exist entirely in your imagination.";
+            document.body.appendChild(newElement);
+            var scriptElement = document.querySelector("script");
+            document.body.insertBefore(newElement, scriptElement);
+            var h1Element = document.querySelector("h1");
+            document.body.insertBefore(newElement, h1Element.nextSibling);
+            var share = document.querySelector(".share");
+            var shareClone = share.cloneNode(false);
+            document.querySelector("#footer").appendChild(shareClone);
+        </script>
+    </body>
+</html>

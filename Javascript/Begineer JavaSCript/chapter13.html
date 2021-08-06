@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 13 WHEN PRIMITIVES BEHAVE LIKE OBJECTS </title>
+    </head>
+    <body>
+        <h3>CHAPTER 13 WHEN PRIMITIVES BEHAVE LIKE OBJECTS</h3>
+        <script>
+            var game = "Dragon Age: Origins";
+            alert("Length is: " + game.length);
+            
+            var gameObject = new String("Dragon Age:Origins");
+            alert(typeof game); // string
+            alert(typeof game.length); // number
+            alert(typeof gameObject); // Object
+        </script>
+    </body>
+</html>
