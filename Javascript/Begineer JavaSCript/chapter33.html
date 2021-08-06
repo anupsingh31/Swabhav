@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CHAPTER 29 EVENT BUBBLING AND CAPTURING</title>
+    </head>
+    <body id="theBody" class="item">
+        <div id="one" class="item">
+        <div id="two" class="item">
+        <div id="three" class="item">
+        <button id="buttonOne" class="item">one</button>
+        <button id="buttonTwo" class="item">two</button>
+        <button id="buttonThree" class="item">three</button>
+        </div>
+        </div>
+        </div>
+        <div id="one_b" class="item">
+        </div>
+        <script>
+            var oneElement = document.querySelector("#one");
+            var twoElement = document.querySelector("#two");
+            var threeElement = document.querySelector("#three");
+            oneElement.addEventListener("click", doSomething, false);
+            twoElement.addEventListener("click", doSomething, false);
+            threeElement.addEventListener("click", doSomething, false);
+            function doSomething(e) {
+                var clickedItem = e.target.id;
+                alert("Hello " + clickedItem);
+            }
+        </script>
+    </body>
+</html>
