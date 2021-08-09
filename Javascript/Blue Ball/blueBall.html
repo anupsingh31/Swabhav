@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Blue Ball</title>
+
+	<style>
+	
+
+		.grid {
+			min-width: 480px;
+			display: grid;
+			width: 100%;
+			grid-template-columns: repeat(10, 8fr);
+			grid-column-gap: 2%;
+			grid-row-gap: 2%;
+		}
+
+		.circle_button {
+			width: 8vw;
+			min-width: 38px;
+			height: 8vw;
+			min-height: 38px;
+			justify-items: center;
+			border-radius: 50%;
+			border: none;
+			text-align: center;
+			font-size: 1.2em;
+		}
+
+		.circle_button:hover {
+			transform: scale(1.2);
+		}
+	</style>
+</head>
+
+<body>
+	<div id="menu">
+		<section>
+            <h1>Blue Ball</h1>
+	        <h4>Welcome to Blue Ball game...</h4>
+			<h3>Rules:</h3>
+			<ol>
+				<li>Click on the any ball</li>
+				<li>If ball turns red, blue ball is at lower value</li>
+				<li>If ball turns green, blue ball is at higher value</li>
+                <li>If ball turns blue, you win the game</li>
+				<li>Press start to play the game</li>
+			</ol>
+		</section>
+		<section id="controls">
+			<button id="btnStart">Start</button>
+		</section>
+	</div>
+
+	<div id="game">
+		<div id='balls' class="grid">
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		(function () {
+			var menu = document.getElementById('menu');
+			var btnStart = document.getElementById('btnStart');
+			var game = document.getElementById('game');
+			var controls = document.getElementById('balls');
+
+			let attemptsRemaining = 0;
+			const MAX_ATTEMPTS = 3;
+			const MAX_BUTTONS = 50;
+			let blueBallPos = 0;
+			const LOOK_BACK_COLOR = '#ff5656';
+			const CORRECT_COLOR = '#0000FF';
+			const LOOK_AHED_COLOR = '#00ff00';
+			const NEUTRAL_COLOR = '#999';
+
+			var setBlueBall = function () {
+				blueBallPos = 1 + Math.floor(Math.random() * MAX_BUTTONS);
+				console.log(blueBallPos);
+			}
+
+			var showMenu = function () {
+				game.style.display = 'none';
+				menu.style.display = 'block';
+			}
+
+			var endGame = function () {
+				console.log('game ended');
+				alert('you lost');
+				showMenu();
+			}
+
+			var decreaseAttempt = function(){
+				attemptsRemaining--;
+				if(attemptsRemaining<=0){
+					endGame();
+					return;
+				}
+				alert("Number of attemp remaining : "+attemptsRemaining);
+			}
+			var guessBall = function (e) {
+				let num = parseInt(e.target.innerHTML);
+				console.log('clicked', num);
+				if (num == blueBallPos) {
+                
+					e.target.style.backgroundColor = CORRECT_COLOR;
+					setTimeout(wakeUpUser, 2000);
+            		function wakeUpUser(){
+						alert ("You win")
+                		showMenu();
+            		}
+					return;
+				}
+
+				if (num < blueBallPos) {
+					e.target.style.backgroundColor = LOOK_AHED_COLOR;
+					
+				}
+				else {
+					e.target.style.backgroundColor = LOOK_BACK_COLOR;
+					
+				}
+				setTimeout(wakeUpUser, 1000);
+            	function wakeUpUser(){
+                	decreaseAttempt();
+				}
+			}
+
+			var generateButtons = function () {
+				controls.innerHTML = '';
+				for (let i = 0; i < MAX_BUTTONS; i++) {
+					let button = document.createElement('button');
+					button.style.backgroundColor = NEUTRAL_COLOR;
+					button.addEventListener('click', guessBall);
+					button.classList.add('circle_button');
+					button.innerHTML = (i + 1).toString();
+					controls.appendChild(button);
+				}
+			}
+
+			var startGame = function (e) {
+				menu.style.display = 'none';
+				game.style.display = 'block';
+				attemptsRemaining = MAX_ATTEMPTS;
+				setBlueBall();
+				generateButtons();
+			}
+
+			btnStart.addEventListener('click', startGame);
+
+		})();
+	</script>
+</body>
+</html>
