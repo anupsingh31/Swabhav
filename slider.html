@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="range" id="myRange" min="1" max ="200" >
+
+<p id="text"></p>
+<div id="container"></div>
+
+<script>
+    var rangeId = document.getElementById("myRange");
+    rangeId.oninput= function () {
+    var x = rangeId.value;
+    console.log(x);
+  document.getElementById("text").innerHTML ="value selected : " +x;
+  document.getElementById("container").innerHTML =" ";
+  for(i=1;i<=x;i++){
+    let btn = document.createElement("button");
+    btn.innerHTML = i;
+    btn.id=i
+    btn.addEventListener("click",(e)=>{
+    console.log(e.target.id)
+    alert("value is : "+e.target.id);
+    })
+    var container=document.getElementById("container")
+    container.appendChild(btn);
+    
+  }
+}
+</script>
+
+</body>
+</html>

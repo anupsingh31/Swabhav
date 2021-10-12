@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+            <select name="slct" id="slct">
+                <option>---Select---</option>
+                <option value="#ed7e85">Red</option>
+                <option value="#8593ed">Blue</option>
+                <option value="#86eb93">Green</option>
+                <option value="#f2f07e">Yellow</option>
+                <option value="#f7ac6a">Orange</option>
+                <option value="#5c3b31">Brown</option>
+            </select>
+        <script>
+            function colorChange(){
+                var list = document.getElementById("slct");
+                var colorName = list.options[list.selectedIndex].value;
+                console.log(colorName);
+                document.body.style.backgroundColor=colorName;
+            }
+            document.querySelector("#slct").addEventListener("click",colorChange);
+        </script>
+    </body>
+</html>

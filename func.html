@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+    <button id="buttonclick">Click Me!</button>
+    <button id="buttonexit">Exit Me!</button>
+
+
+<script>
+f1(10,20,30);
+function f1(){
+    console.log(arguments);
+}
+function f2(e){
+    console.log(arguments);
+    console.log(e.target)
+  //  console.log(e.target.)
+   // window.alert(e.target)
+}
+document.querySelector("#buttonclick").addEventListener("click",f2);
+document.querySelector("#buttonexit").addEventListener("click",f2);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        Name : <input type="text" id="greet" value="">
+        <button id="onclick">greet</button>
+        <p id="write"></p>
+        <script>
+            var string =""
+            function getName(){
+                var name = document.getElementById("greet").value;
+                    console.log(name)
+                    string += time()+" "+name +" <br>";
+                    document.getElementById("write").innerHTML =string;
+            }
+            function time(){
+                var date = new Date();
+                var time= date.getHours();
+                if(time<12){
+                    return "Good Morning";
+                }else if(time<18){
+                    return "Good AfterNoon";
+                }else{
+                    return "Good Evening";
+                }
+            }
+            document.querySelector("#onclick").addEventListener("click",getName);
+        </script>
+    </body>
+
+</html>
